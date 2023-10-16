@@ -1,6 +1,7 @@
 package org.hbrs.se1.ws23.uebung1.control;
 
 public class GermanTranslator implements Translator {
+	private String info = "Initial info class";
 
 	public String date = "Okt/2023"; // Default-Wert
 
@@ -8,9 +9,15 @@ public class GermanTranslator implements Translator {
 	 * Methode zur Übersetzung einer Zahl in eine String-Repraesentation
 	 */
 	public String translateNumber( int number ) {
-		// [ihr Source Code aus Übung 1-2]
+		String[] number_array = {"eins", "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht", "neuen", "zehn"};
 
-		return "null";
+		try {
+			return number_array[number - 1];
+		}
+		catch (IndexOutOfBoundsException e)
+		{
+			return "Übersetzung der Zahl " + number + " nicht möglich (" + version + ")";
+		}
 	}
 
 	/**
